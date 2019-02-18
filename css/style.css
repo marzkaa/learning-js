@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+    padding: 40px;
+    background-color: cadetblue;
+}
+header {
+    font-family: 'Coiny', cursive;
+    font-size: 20px;
+}
+h3 {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.buttons button {
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    margin: 20px;
+    border-width: inherit;
+    cursor: pointer;
+}
+button:focus {
+    outline: 0;
+}
+img {
+    width: 60px;
+}
