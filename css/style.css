@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    padding: 40px;
+}
+div {
+	display: inline-block;
+	margin: 15px;
+    padding: 10px;
+	width: 170px;
+    height: 120px;
+	border: 3px solid rgb(168, 23, 57);
+    opacity: 0.7;
+}
+.highlighted {
+    background-color: rgb(223, 173, 185);
+}  
+.special-header > h1 {
+    color: rgb(245, 19, 57);
+} 
+.important {
+    opacity: 1;
+}
