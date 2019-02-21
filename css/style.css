@@ -34,7 +34,7 @@ body {
 	display: block;
 }
 	
-.close {
+.modal .close {
 	position: absolute;
 	right: 0;
 	top: 0;
