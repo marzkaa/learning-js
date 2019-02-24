@@ -50,7 +50,7 @@ function disableButtons(state) {
 
 function roundsLimit() {
     
-    rounds = window.prompt('How many round would you play?');
+    rounds = parseInt(window.prompt('How many round would you play?'));
     if (rounds > 0) {
        limit.innerHTML = 'We will play up to ' + rounds + ' wins';
     }
@@ -111,11 +111,11 @@ function setScore() {
 
 
 function gameIsOver() {
-    if (userScore == rounds) {
+    if (userScore === rounds) {
         gameResult.innerHTML = 'YOU WON THE ENTIRE GAME!!!';
         disableButtons(true);
     }
-    else if (computerScore == rounds) {
+    else if (computerScore === rounds) {
         gameResult.innerHTML = 'YOU LOSE, COMPUTER WAS BETTER!!!';
         disableButtons(true);
     }
