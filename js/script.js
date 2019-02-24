@@ -4,6 +4,8 @@ var userScore;
 var computerScore;
 var rounds;
 var roundWinner;
+var userChoice 
+var buttons = document.querySelectorAll(".player-move");
 var output = document.getElementById('output');
 var rock = document.getElementById('rock');
 var paper = document.getElementById('paper');
@@ -27,19 +29,12 @@ function registerListeners(){
     result.innerHTML = "";
     gameResult.innerHTML = "";
 });
-
-rock.addEventListener('click', function() {
-    var userChoice = 'ROCK';
-    startPlay(userChoice);
-});
-paper.addEventListener('click', function() {
-    var userChoice = 'PAPER';
-    startPlay(userChoice);
-});
-scissors.addEventListener('click', function() {
-    var userChoice ='SCISSORS';
-    startPlay(userChoice);
-});
+    for (var i = 0; i < buttons.length; i++) { 
+        buttons[i].addEventListener("click", function () {
+            userChoice = this.getAttribute("data-move"); 
+        startPlay(userChoice);
+        });
+    }
 };
 
 function disableButtons(state) {
