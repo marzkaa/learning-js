@@ -14,7 +14,7 @@ var modalOverlay = document.querySelector('#modal-overlay');
         registerListeners();
     };	
 
-	var showModal = function(event){
+	function showModal(event){
 		event.preventDefault();
 	    for (var i = 0; i < modals.length; i++) { 
 		    modals[i].classList.remove('show');
@@ -23,7 +23,7 @@ var modalOverlay = document.querySelector('#modal-overlay');
 	    modalOverlay.classList.add('show');	
     };
     
-    var hideModal = function(event) {
+    function hideModal(event) {
 		event.preventDefault();
 		modalOverlay.classList.remove('show');
     };
