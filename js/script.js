@@ -1,8 +1,5 @@
 'use strict'
 
-
-var rounds;
-var roundWinner;
 var buttons = document.querySelectorAll(".player-move");
 var output = document.getElementById('output');
 var rock = document.getElementById('rock');
@@ -15,13 +12,15 @@ var modals = document.querySelector('.modal');
 var modalOverlay = document.querySelector('#modal-overlay');
 var table = document.querySelector('.table');
 
-var params = {
+var state = {
+    roundWinner: "",
+    rounds: 0,
     gameRounds: 0,
     userScore: 0,
     computerScore: 0,  
-    winerIs: "",
+    lastWinner: "",
     userChoice: "",
-    computerMove: "",
+    computerChoice: "",
     progress: [],
 }
 
@@ -33,24 +32,23 @@ function initialize () {
     registerListeners();
 }
 
-function registerListeners(){
+function registerListeners() {
     reset.addEventListener('click', function() {
-    params.userScore = 0;
-    params.computerScore = 0;
-    params.gameRounds++;
-    disableButtons(false);
-    roundsLimit();  
-    output.classList.remove('hide');
-    document.getElementById('result').classList.remove('hide');
-    document.getElementById('limit').classList.remove('hide');
-    output.innerHTML = "";
-    result.innerHTML = "";
-
-});
+        state.userScore = 0;
+        state.computerScore = 0;
+        state.gameRounds++;
+        disableButtons(false);
+        roundsLimit();  
+        output.classList.remove('hide');
+        document.getElementById('result').classList.remove('hide');
+        document.getElementById('limit').classList.remove('hide');
+        output.innerHTML = "";
+        result.innerHTML = "";
+    });
     for (var i = 0; i < buttons.length; i++) { 
         buttons[i].addEventListener("click", function () {
-            params.userChoice = this.getAttribute("data-move"); 
-        startPlay(params.userChoice);
+            state.userChoice = this.getAttribute("data-move"); 
+            startSingleRound(state.userChoice);
         });
     }
 };
@@ -58,24 +56,20 @@ function registerListeners(){
 function disableButtons(state) {
     rock.disabled = state;
     paper.disabled = state;   
-    scissors.disabled = state;
-    
+    scissors.disabled = state;    
 };
 
 function roundsLimit() {
      
-    rounds = parseInt(window.prompt('How many round would you play?'));
-    if (rounds > 0) {
-       limit.innerHTML = 'We will play up to ' + rounds + ' wins';
+    state.rounds = parseInt(window.prompt('How many round would you play?'));
+    if (state.rounds > 0) {
+       limit.innerHTML = 'We will play up to ' + state.rounds + ' wins';
     }
-    else if (isNaN(rounds) || rounds <= 0) {
+    else if (isNaN(state.rounds) || state.rounds <= 0) {
        limit.innerHTML = 'Please type correct number of rounds';
-   }
-    return rounds ;
-
+    }
+    return state.rounds ;
 };
-
-
 
 function computerChoice() {
     var compChoice = Math.floor(Math.random() * 3 + 1);
@@ -88,7 +82,7 @@ function computerChoice() {
     else {
         compChoice = 'scissors';
     }
-
+    state.computerChoice = compChoice;
     return compChoice;
 };
 
@@ -96,25 +90,23 @@ function computerChoice() {
 
 function compare(userChoice, compChoice) {
     if (userChoice === compChoice) {
-    roundWinner = 'NO ONE WINS this round:';
-    params.winerIs = "it /'s tie";
+        state.roundWinner = 'NO ONE WINS this round:';
+        state.lastWinner = "it \'s tie";
     }
     else if ((userChoice === "rock" && compChoice === "scissors") || 
         (userChoice === "paper" && compChoice === "rock")||
         (userChoice === "scissors" && compChoice === "paper")) {
-        roundWinner = 'YOU WON:';
-        params.userScore++;
-        params.winerIs = "player";
-           
+        state.roundWinner = 'YOU WON:';
+        state.userScore++;
+        state.lastWinner = "player";          
     } 
     else {
-        roundWinner = 'COMPUTER WON this round:';
-        params.computerScore++;
-        params.winerIs = "computer";
+        state.roundWinner = 'COMPUTER WON this round:';
+        state.computerScore++;
+        state.lastWinner = "computer";
         
     }
-    return roundWinner ;
-    
+    return state.roundWinner ;   
 };
 
 
@@ -128,13 +120,12 @@ function roundResultDisplay(roundWinner) {
 };
 
 function setScore() {
-    document.getElementById('result').innerHTML = (params.userScore + ' - ' + params.computerScore);   
+    document.getElementById('result').innerHTML = (state.userScore + ' - ' + state.computerScore);   
 };
 
 
 function gameIsOver() {
-    if (params.userScore === rounds) {
-        
+    if (state.userScore === state.rounds) {       
         modalOverlay.classList.add("show");
         modals.classList.add('show');
         output.classList.add('hide');
@@ -144,85 +135,80 @@ function gameIsOver() {
         disableButtons(true);
 
     }
-    else if (params.computerScore === rounds) {
+    else if (state.computerScore === state.rounds) {
         
         modalOverlay.classList.add("show");
         modals.classList.add('show');
         output.classList.add('hide');
         document.getElementById('result').classList.add('hide');
-        document.getElementById('limit').classList.add('hide');
-        
-        modalContent.innerHTML = 'YOU LOSE, COMPUTER WAS BETTER!!!';
-        
-        disableButtons(true);
-    
+        document.getElementById('limit').classList.add('hide');       
+        modalContent.innerHTML = 'YOU LOSE, COMPUTER WAS BETTER!!!';        
+        disableButtons(true);    
     }
     function hideModal(event) {
         event.preventDefault();
         modalOverlay.classList.remove('show');
-    };
-      
-    for(var i = 0; i < closeButtons.length; i++){
-        closeButtons[i].addEventListener('click', hideModal);
-        
+    };      
+    for (var i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener('click', hideModal);      
     }
     modalOverlay.addEventListener('click', hideModal);
     
-    for(var i = 0; i < modals.length; i++){
-        modals[i].addEventListener('click', function(event){
+    for (var i = 0; i < modals.length; i++) {
+        modals[i].addEventListener('click', function(event) {
                 event.stopPropagation();
         });
     }
     
 }
 
-params.progress.push({
-    gameRounds: params.gameRounds,
-    userChoice: params.userChoice,
-    computerMove: params.computerMove,
-    winerIs: params.winerIs,
-    userScore: params.userScore,
-    computerWin: params.computerScore,
-    
-});
+function updateState () {
+    state.progress.push( {
+        gameRounds: state.gameRounds,
+        userChoice: state.userChoice,
+        computerChoice: state.computerChoice,
+        lastWinner: state.lastWinner,
+        userScore: state.userScore,
+        computerScore: state.computerScore,
+        
+    });
+};
 
-var summary = '<table> \
-                <thead> \
-                    <tr> \
-                        <th>Number of rounds:</th> \
-                        <th>Players move:</th> \
-                        <th>Computers move:</th> \
-                        <th>The winner</th> \
-                        <th>Game rasults</th>\
-                    </tr> \
-                </thead> \
-                <tbody>';
+function generateSummary() {
+    var summary = '<table> \
+                        <thead> \
+                            <tr> \
+                                <th>Number of rounds:</th> \
+                                <th>Player\'s move:</th> \
+                                <th>Computer\'s move:</th> \
+                                <th>The winner</th> \
+                                <th>Game results</th>\
+                            </tr> \
+                        </thead> \
+                    <tbody>';
 
-                for (var i=0; i < params.progress.length; i++) {
-                    summary += '<tr> \
-                        <td>' + params.progress[i].gameRounds + '</td> \
-                        <td>' + params.progress[i].userChoice + '</td> \
-                        <td>' + params.progress[i].computerMove + '</td> \
-                        <td>' + params.progress[i].winerIs + '</td> \
-                        <td>' + params.progress[i].userScore + ' - ' + params.progress[i].computerScore + '</td> \
-                    </tr>';
-                }
+    for (var i=0; i < state.progress.length; i++) {
+        summary += '<tr> \
+        <td>' + state.progress[i].gameRounds + '</td> \
+        <td>' + state.progress[i].userChoice + '</td> \
+        <td>' + state.progress[i].computerChoice + '</td> \
+        <td>' + state.progress[i].lastWinner + '</td> \
+        <td>' + state.progress[i].userScore + ' - ' + state.progress[i].computerScore + '</td> \
+        </tr>';
+    }
+    summary += '</tbody></table>';
+    table.innerHTML = summary
+};
 
-                summary += '</tbody></table>';
 
-                table.innerHTML = summary
-
-function startPlay(userChoice) {
-    
+function startSingleRound(userChoice) {   
     var compChoice = computerChoice();
-    roundWinner = compare(userChoice,compChoice);
+    state.roundWinner = compare(userChoice,compChoice);
     clearBox(output);
-    roundResultDisplay(roundWinner);
+    roundResultDisplay(state.roundWinner);
     output.insertAdjacentHTML('beforeend', ' You chose '+ userChoice + ' and computer chose ' + compChoice +'<br>' ); 
     setScore();
     gameIsOver();
-       
-    
-    
-     
+    updateState ();
+    generateSummary();  
 };
