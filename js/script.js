@@ -125,25 +125,13 @@ function setScore() {
 
 
 function gameIsOver() {
-    if (state.userScore === state.rounds) {       
-        modalOverlay.classList.add("show");
-        modals.classList.add('show');
-        output.classList.add('hide');
-        document.getElementById('result').classList.add('hide');
-        document.getElementById('limit').classList.add('hide');
+    if (state.userScore === state.rounds) {  
+        ShowHideModalContent()     
         modalContent.innerHTML = 'YOU WON THE ENTIRE GAME!!!';   
-        disableButtons(true);
-
     }
     else if (state.computerScore === state.rounds) {
-        
-        modalOverlay.classList.add("show");
-        modals.classList.add('show');
-        output.classList.add('hide');
-        document.getElementById('result').classList.add('hide');
-        document.getElementById('limit').classList.add('hide');       
+        ShowHideModalContent()
         modalContent.innerHTML = 'YOU LOSE, COMPUTER WAS BETTER!!!';        
-        disableButtons(true);    
     }
     function hideModal(event) {
         event.preventDefault();
@@ -160,6 +148,15 @@ function gameIsOver() {
         });
     }
     
+}
+
+function ShowHideModalContent() {
+    modalOverlay.classList.add("show");
+    modals.classList.add('show');
+    output.classList.add('hide');
+    document.getElementById('result').classList.add('hide');
+    document.getElementById('limit').classList.add('hide');
+    disableButtons(true);
 }
 
 function updateState () {
@@ -209,6 +206,6 @@ function startSingleRound(userChoice) {
     output.insertAdjacentHTML('beforeend', ' You chose '+ userChoice + ' and computer chose ' + compChoice +'<br>' ); 
     setScore();
     gameIsOver();
-    updateState ();
+    updateState();
     generateSummary();  
 };
