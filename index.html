@@ -1,10 +1,55 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Learning js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Google Maps</title>
+        <link rel="stylesheet" type="text/css" href="vendor\normalize.css">
+        <link rel="stylesheet" type="text/css" href="vendor\flickity.min.css" media="screen">       
         <link rel="stylesheet" type="text/css" href="css\style.css">
+        
     </head>
     <body>
+        <div class="main-carousel"></div>    
+        <button class="btn btn-restart">Restart</button>
+        <div class="progress-bar"></div>
+        <div id="map"></div>
+        <script id="template-carousel" type="x-tmpl-mustache">
+            <div class="carousel-cell" id="carousel-cell{{index}}" style="background-image: url({{image}})">
+                <div class="container">
+                    <h2>{{title}}</h2>
+                    {{{description}}}
+                </div>
+            </div>
+        </script>
+        <script>
+            var data = [{
+                image: 'https://cdn.pixabay.com/photo/2014/05/03/01/04/manhattan-336708__340.jpg',
+                title: 'New York',
+                description: '<p>First description</p>',
+                index: 1,
+                coords: {lat: 40.7308619, lng: -73.9871558}                
+                },
+                {
+                image: 'https://cdn.pixabay.com/photo/2016/01/19/17/15/night-1149601__340.jpg',    
+                title: 'London',
+                description: '<p>Second description</p>',
+                index: 2, 
+                coords: {lat: 51.5073219, lng: -0.1276474}              
+                },
+                {
+                image: 'https://images.unsplash.com/photo-1519813915721-d6bacab2c172?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',    
+                title: 'Sydney',
+                description: '<p>Third description</p>',
+                index: 3, 
+                coords: {lat: -33.8548157, lng: 151.2164539}              
+                },
+            ];
+        </script>
+        <script src="vendor\flickity.pkgd.min.js"></script>
+        <script src="vendor\hash.js"></script>
+        <script src="vendor\mustache.js"></script>       
         <script src="js\script.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2MzRx6a8OAvuUPmHGzZiLD6-fUlystZw&callback=initMap"></script>
     </body>
 </html>
