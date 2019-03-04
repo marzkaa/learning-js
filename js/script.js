@@ -12,6 +12,7 @@ var modals = document.querySelector('.modal');
 var modalOverlay = document.querySelector('#modal-overlay');
 var table = document.querySelector('.table');
 
+
 var state = {
     roundWinner: "",
     rounds: 0,
@@ -22,6 +23,7 @@ var state = {
     userChoice: "",
     computerChoice: "",
     progress: [],
+    winner: "",
 }
 
 initialize ();
@@ -126,12 +128,12 @@ function setScore() {
 
 function gameIsOver() {
     if (state.userScore === state.rounds) {  
-        ShowHideModalContent()     
-        modalContent.innerHTML = 'YOU WON THE ENTIRE GAME!!!';   
+        showHideModalContent()     
+        state.winner = 'YOU WON THE ENTIRE GAME!!!';   
     }
     else if (state.computerScore === state.rounds) {
-        ShowHideModalContent()
-        modalContent.innerHTML = 'YOU LOSE, COMPUTER WAS BETTER!!!';        
+        showHideModalContent()
+        state.winner = 'YOU LOSE, COMPUTER WAS BETTER!!!';        
     }
     function hideModal(event) {
         event.preventDefault();
@@ -147,16 +149,17 @@ function gameIsOver() {
                 event.stopPropagation();
         });
     }
-    
+    return modalContent.innerHTML = state.winner;
 }
 
-function ShowHideModalContent() {
+function showHideModalContent() {
     modalOverlay.classList.add("show");
-    modals.classList.add('show');
+    modals.classList.add('show');   
     output.classList.add('hide');
     document.getElementById('result').classList.add('hide');
     document.getElementById('limit').classList.add('hide');
     disableButtons(true);
+    
 }
 
 function updateState () {
