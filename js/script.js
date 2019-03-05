@@ -128,11 +128,11 @@ function setScore() {
 
 function gameIsOver() {
     if (state.userScore === state.rounds) {  
-        showHideModalContent()     
+        showHideModalContent(state.winner)     
         state.winner = 'YOU WON THE ENTIRE GAME!!!';   
     }
     else if (state.computerScore === state.rounds) {
-        showHideModalContent()
+        showHideModalContent(state.winner)
         state.winner = 'YOU LOSE, COMPUTER WAS BETTER!!!';        
     }
     function hideModal(event) {
@@ -149,10 +149,11 @@ function gameIsOver() {
                 event.stopPropagation();
         });
     }
-    return modalContent.innerHTML = state.winner;
+    /*return modalContent.innerHTML = state.winner;*/
 }
 
-function showHideModalContent() {
+function showHideModalContent(winner) {
+    modalContent.innerHTML = state.winner;
     modalOverlay.classList.add("show");
     modals.classList.add('show');   
     output.classList.add('hide');
