@@ -23,7 +23,6 @@ var state = {
     userChoice: "",
     computerChoice: "",
     progress: [],
-    winner: "",
 }
 
 initialize ();
@@ -128,12 +127,11 @@ function setScore() {
 
 function gameIsOver() {
     if (state.userScore === state.rounds) {  
-        showHideModalContent(state.winner)     
-        state.winner = 'YOU WON THE ENTIRE GAME!!!';   
+        showHideModalContent('YOU WON THE ENTIRE GAME!!!');     
+           
     }
     else if (state.computerScore === state.rounds) {
-        showHideModalContent(state.winner)
-        state.winner = 'YOU LOSE, COMPUTER WAS BETTER!!!';        
+        showHideModalContent('YOU LOSE, COMPUTER WAS BETTER!!!');        
     }
     function hideModal(event) {
         event.preventDefault();
@@ -152,8 +150,8 @@ function gameIsOver() {
     /*return modalContent.innerHTML = state.winner;*/
 }
 
-function showHideModalContent(winner) {
-    modalContent.innerHTML = state.winner;
+function showHideModalContent(text) {
+    modalContent.innerHTML = text;
     modalOverlay.classList.add("show");
     modals.classList.add('show');   
     output.classList.add('hide');
