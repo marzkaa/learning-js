@@ -133,21 +133,7 @@ function gameIsOver() {
     else if (state.computerScore === state.rounds) {
         showHideModalContent('YOU LOSE, COMPUTER WAS BETTER!!!');        
     }
-    function hideModal(event) {
-        event.preventDefault();
-        modalOverlay.classList.remove('show');
-    };      
-    for (var i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].addEventListener('click', hideModal);      
-    }
-    modalOverlay.addEventListener('click', hideModal);
-    
-    for (var i = 0; i < modals.length; i++) {
-        modals[i].addEventListener('click', function(event) {
-                event.stopPropagation();
-        });
-    }
-    /*return modalContent.innerHTML = state.winner;*/
+      
 }
 
 function showHideModalContent(text) {
@@ -158,7 +144,25 @@ function showHideModalContent(text) {
     document.getElementById('result').classList.add('hide');
     document.getElementById('limit').classList.add('hide');
     disableButtons(true);
-    
+    registerListenersOnModal();
+}
+
+function registerListenersOnModal() {
+    function hideModal(event) {
+        event.preventDefault();
+        modalOverlay.classList.remove('show');
+        console.log(1)
+    };      
+    for (var i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener('click', hideModal);      
+    }
+    modalOverlay.addEventListener('click', hideModal);
+
+    for (var i = 0; i < modals.length; i++) {
+        modals[i].addEventListener('click', function(event) {
+                event.stopPropagation();
+        });
+    }
 }
 
 function updateState () {
