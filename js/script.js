@@ -151,7 +151,6 @@ function registerListenersOnModal() {
     function hideModal(event) {
         event.preventDefault();
         modalOverlay.classList.remove('show');
-        console.log(1)
     };      
     for (var i = 0; i < closeButtons.length; i++) {
         closeButtons[i].addEventListener('click', hideModal);      
