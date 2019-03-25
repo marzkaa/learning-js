@@ -1,0 +1,49 @@
+body {
+    background-color: #55ACEE;
+    font-family: 'Rokkitt', serif;
+    text-align: center;
+    color: white;
+}
+  
+header h1 {
+    font-size: 50px;
+}
+ 
+.trigger {
+    margin: 20px 0px;
+    border: 1px solid white;
+    padding: 12px;
+    background-color: #55ACEE;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.3em;
+    width: 205px;
+    transition: 0.8s;
+    background-position: 100% 0;
+    background-size: 300%;
+}
+  
+.tweet {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 0.3em;
+    width: 183px;
+    transition: 0.8s;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-position: 100% 0;
+    background-size: 300%;
+}
+.trigger:hover {
+    background-image: linear-gradient(135deg, #1481e6 50%, transparent 50%);
+    background-position: 0 100%;
+    color: #fff;
+}
+.tweet:hover {
+    background-image: linear-gradient(75deg, #1481e6 50%, transparent 50%);
+    background-position: 0 100%;
+    color: #fff;
+}
