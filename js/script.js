@@ -8,12 +8,15 @@ function Phone(brand, price, color, storage, premiere) {
     this.color = color;
     this.storage = storage;
     this.premiere = premiere;
-    this.getWarrantyCost = this.price * 0.1
+    getWarrantyCost = function() {
+		return " , the warranty cost is" + this.price * 0.1;
+	}
 
 }
 Phone.prototype.printInfo = function() {
-	console.log("The phone brand is " + this.brand + ", color is " + this.color + ", the price is " + this.price + ", the warranty cost is " + this.getWarrantyCost + ", storage is " + this.storage + " and the premiere was in " + this.premiere + ".");
+	console.log("The phone brand is " + this.brand + ", color is " + this.color + ", the price is " + this.price + getWarrantyCost() + ", storage is " + this.storage + " and the premiere was in " + this.premiere + ".");
 }
+
 
 iPhone6S.printInfo();
 SamsungGalaxyS6.printInfo();
