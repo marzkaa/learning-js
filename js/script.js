@@ -104,8 +104,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //Button New Column
     document.querySelector('#board .create-column').addEventListener('click', function () {
         var name = prompt('Enter a column name');
-        var column = new Column(name);
-        board.addColumn(column);
+        if (name != null) {
+            var column = new Column(name);
+            board.addColumn(column);
+        } else {
+            return false;
+        }
     });
 
     // Creating Columns
