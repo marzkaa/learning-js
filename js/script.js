@@ -31,6 +31,7 @@ initialize ();
 function initialize () {
     disableButtons(true);
     registerListeners();
+    registerListenersOnModal();
 }
 
 function registerListeners() {
@@ -144,11 +145,12 @@ function showHideModalContent(text) {
     document.getElementById('result').classList.add('hide');
     document.getElementById('limit').classList.add('hide');
     disableButtons(true);
-    registerListenersOnModal();
+    
 }
 
 function registerListenersOnModal() {
     function hideModal(event) {
+        console.log('hideModal')
         event.preventDefault();
         modalOverlay.classList.remove('show');
     };      
