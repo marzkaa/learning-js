@@ -3,16 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>Learning js</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Lato" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css\style.css">
     </head>
-    <body>
+    <body >
+            <div class="container text-center">
         <h1>Country search engine</h1>
-        <button id="search">Search a country</button>
         <input id="country-name" type="text" />
+        <button id="search" class="btn btn-default">Search a country</button>
+        
         <h2>List of countries</h2>
-        <ul id="countries">
-            <li>No data</li>
-        </ul>
+        
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="row">Country</th>
+                    <th scope="row">Capital</th>
+                    <th scope="row">Region</th>
+                    <th scope="row">Population</th>
+                  </tr>
+                </thead>
+                <tbody id="countries">
+                  
+                </tbody>
+              </table>
+            </div>
         <script src="js\script.js"></script>
     </body>
 </html>
