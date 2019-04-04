@@ -19,5 +19,8 @@ server.on('request', function (request, response) {
     }
 });
 
+var port = 9000;
 
-server.listen(9000);
+server.listen(port, function(){
+  console.log('listening on ' + port + '...')
+});
