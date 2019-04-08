@@ -58,12 +58,14 @@ li {
   
 .card-description {
     padding: 5px;
+    color: black;
 }
   
 .card > p {
     min-height: 20px;
     text-align: left;
     font-family: 'Roboto Slab', serif;
+    
 }
   
 .column {
