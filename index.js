@@ -22,7 +22,7 @@ fs.readdir('./', 'utf-8', function(err, data) {
     if (err) throw err;
     console.log('Zawartość katalogu zapisano do pliku nowy.txt'.blue);
     console.log(data);
-    fs.writeFile('./nowy.txt', data, function(err) {
+    fs.writeFile('./nowy.txt', data.join('\n'), function(err) {
       if (err) throw err;
       console.log('Zapisano!'.blue);
     }); 
