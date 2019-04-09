@@ -15,6 +15,14 @@ function searchCountries() {
 };
 
 function showCountriesList(resp) {
+    console.log('odp z serwera', resp);
+
+        var filtered = array.filter(function(item) {
+        return item.countryName.includes("") 
+    });
+    
+
+
     countries.innerHTML = '';
     resp.forEach(function(item) {
             var newRow = document.createElement('tr');
