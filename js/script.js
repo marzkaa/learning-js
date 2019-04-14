@@ -14,32 +14,30 @@ function searchCountries() {
         .then(showCountriesList);
 };
 
+function checkMainName(item) {
+    var mainName = item.name.toLowerCase();
+    var inputValue = document.getElementById('country-name').value.toLowerCase();
+    return mainName.includes(inputValue);
+}
+
 function showCountriesList(resp) {
-    console.log('odp z serwera', resp);
-
-        var filtered = array.filter(function(item) {
-        return item.countryName.includes("") 
-    });
-    
-
-
     countries.innerHTML = '';
-    resp.forEach(function(item) {
-            var newRow = document.createElement('tr');
-            var countryName = document.createElement('td');
-            var countryCapital = document.createElement('td');
-            var countryRegion = document.createElement('td');
-            var countryPopulation = document.createElement('td');
-            
-            countryName.innerText = item.name;
-            countryCapital.innerText = item.capital;
-            countryRegion.innerText = item.region;
-            countryPopulation.innerText = item.population;
-            
-            countries.appendChild(newRow);
-            newRow.appendChild(countryName);
-            newRow.appendChild(countryCapital);
-            newRow.appendChild(countryRegion);
-            newRow.appendChild(countryPopulation);
-        });
+    resp.filter(checkMainName).forEach(function(item) {
+    var newRow = document.createElement('tr');
+    var countryName = document.createElement('td');
+    var countryCapital = document.createElement('td');
+    var countryRegion = document.createElement('td');
+    var countryPopulation = document.createElement('td');
+
+    countryName.innerText = item.name;
+    countryCapital.innerText = item.capital;
+    countryRegion.innerText = item.region;
+    countryPopulation.innerText = item.population;
+
+    countries.appendChild(newRow);
+    newRow.appendChild(countryName);
+    newRow.appendChild(countryCapital);
+    newRow.appendChild(countryRegion);
+    newRow.appendChild(countryPopulation);
+});
 }
