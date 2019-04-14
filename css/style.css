@@ -1,0 +1,46 @@
+
+
+.contactForm {
+    background: #242b3d;
+    padding: 50px 30px;
+    display: flex;
+    justify-content: center;   
+}
+
+input {
+    border-radius: 3px;
+    padding: 15px 12px;
+    height: auto;
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+    border-right: 1px solid #666;
+    border-bottom: 1px solid #666;
+    background-color: #2d3343;
+    text-transform: uppercase;
+    margin: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+button {
+    width: 160px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #f857a6 0%, #ff5858 51%, #f857a6 100%);
+    border-color: transparent;
+    outline: none;
+    margin: 15px
+}
+.contactItem {
+    display: inline-flex;
+    margin-top: 30px;
+    background-color: #E8EAF6;
+    padding: 20px;
+}
+.contactsList {
+    display: grid;
+    padding: 0;
+}
+.app {
+    margin: 30px;
+}
