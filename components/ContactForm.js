@@ -1,7 +1,8 @@
 var ContactForm = React.createClass({
     propTypes: {
-        contact: React.PropTypes.object.isRequired
+        contact: React.PropTypes.object.isRequired,
     },
+    
 
     render: function () {
         return (
@@ -12,6 +13,7 @@ var ContactForm = React.createClass({
                     type: 'text',
                     placeholder: 'Imię',
                     value: this.props.contact.firstName,
+                    //onChange: this.handleChange,
                 }),
                 React.createElement('input', {
                     type: 'text',
