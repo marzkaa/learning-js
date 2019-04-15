@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./js/script.js"
+    "start": "http-server -a localhost -p 8000"
   },
   "keywords": [],
   "author": "",
