@@ -1,25 +1,25 @@
 {
-    "name": "zad-1-4",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "npm-run-all test:*",
-        "test:html": "globstar nu-html-checker *.html",
-        "init-project": "npm install && npm-run-all init:*",
-        "init:dirs": "mkdirp css js",
-        "init:files": "touch README.md index.html css/style.css js/script.js",
-        "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
-        "watch:browsersync": "browser-sync start --server --files css/*.css *.html"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "browser-sync": "^2.26.3",
-        "globstar": "^1.0.0",
-        "npm-run-all": "^4.1.5",
-        "nu-html-checker": "^0.1.0"
-    },
-    "dependencies": {}
+  "name": "zad-1-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -a localhost -p 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marzkaa/learning-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marzkaa/learning-js/issues"
+  },
+  "homepage": "https://github.com/marzkaa/learning-js#readme"
 }
