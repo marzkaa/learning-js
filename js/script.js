@@ -59,3 +59,6 @@ var element = React.createElement(Counter);
 ReactDOM.render(element, document.getElementById('app'));
 var elementTwo = React.createElement(Counter);
 ReactDOM.render(elementTwo, document.getElementById('appTwo'));
+
+var element = React.createElement('div', {}, React.createElement(Counter, {}), React.createElement(Counter,{}), React.createElement(Counter, {}));
+ReactDOM.render(element, document.getElementById('appThree'));
