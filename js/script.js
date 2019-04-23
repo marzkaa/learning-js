@@ -4,7 +4,7 @@ const x = 'Hello';
 const y = 'World';
 console.log(`${x} ${y}`);
 
-/* const helloWorld = (h ='Hello', w ='World' ) => console.log(`${h} ${w}`); ??*/
+/*  const helloWorld = (h ='Hello', w ='World' ) => console.log(`${h} ${w}`);  */
 
 //Zadanie 2
 
