@@ -4,7 +4,7 @@ const x = 'Hello';
 const y = 'World';
 console.log(`${x} ${y}`);
 
-const helloWorld = (h ='Hello', w ='World' ) => console.log(`${h} ${w}`);
+/* const helloWorld = (h ='Hello', w ='World' ) => console.log(`${h} ${w}`); ??*/
 
 //Zadanie 2
 
@@ -14,15 +14,15 @@ multiply(6, 6);
 multiply(5);
 
 //Zadanie 3
-const average = arr => arr.reduce((prev, next) => prev + next)/ arr.length;
-const arr = [1 ,2 ,3]
-console.log(average(arr));
-/* console.log(average(1));
-average(1, 3);
-average(1, 3, 6, 6); */
+const average = (...arr) => arr.reduce((prev, next) => prev + next)/ arr.length;
+console.log(average(1));
+console.log(average(1, 3));
+console.log(average(1, 3, 6, 6));
+
 
 //Zadanie 4
-const grades = [1, 5, 5, 5, 4, 3, 3, 2, 1]
+const grades = [1, 5, 5, 5, 4, 3, 3, 2, 1];
+console.log(average(...grades));
 
 //Zadanie 5
 
