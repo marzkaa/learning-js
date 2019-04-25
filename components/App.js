@@ -49,7 +49,12 @@ App = React.createClass({
                     searchingText: searchingText
                 });
             })
-            .catch(error => console.log('Wystąpił błąd: ', error));
+            .catch((error) => {
+                console.log('Wystąpił błąd: ', error);
+                this.setState({
+                    loading: false 
+                });
+            });
     },
 
     render: function () {
