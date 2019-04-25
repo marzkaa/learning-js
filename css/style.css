@@ -1,2 +1,23 @@
+body {
+    margin: 0 auto;
+    text-align: center;   
+    background-color:#607D8B;
+}
+
+.stopwatch {
+    padding: 15px;
+    margin: 0 auto;
+    font-size: 66px;
+    text-align: center;
+    color: #BBBBBB;
+}
+  
+.button {
+    font-size: 30px;
+    color: #BBBBBB;
+    text-decoration: none;
+    margin: 50px;
+    padding: 30px 20px;
+}
 
 
