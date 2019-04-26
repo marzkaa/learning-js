@@ -61,13 +61,13 @@ class StopWatch extends React.Component {
 
     render() {
         return (
-            <div className={'app'}>
-            <nav className={'controls'}>
-                <a href={'#'} className={'button start'} onClick={this.start.bind(this)}>Start</a>
-                <a href={'#'} className={'button stop'} onClick={this.stop.bind(this)}>Stop</a>
+            <div className='app'>
+            <nav className='controls'>
+                <a href='#' className='button start' onClick={this.start.bind(this)}>Start</a>
+                <a href='#' className='button stop' onClick={this.stop.bind(this)}>Stop</a>
             </nav>
-            <div className={'stopwatch'}>{this.format(this.state.times)}</div>
-                <ul className={'results'}>
+            <div className='stopwatch'>{this.format(this.state.times)}</div>
+                <ul className='results'>
                     {this.state.resultList.map(itemList => <li key={itemList.id}>{itemList.time}</li>)}
                 </ul>
             </div>
@@ -85,5 +85,4 @@ function pad0(value) {
     return result;
 }
 
-const app = document.getElementById('app');
-ReactDOM.render( <Stopwatch /> , app);
+ReactDOM.render(<StopWatch />,document.getElementById('app'));

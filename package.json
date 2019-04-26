@@ -7,15 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel js/script.js --watch --out-file script-compiled.js"
   },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-latest": "^6.24.1",
-    "babel-polyfill": "^6.26.0"
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest": "^6.24.1"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marzkaa/learning-js.git"
