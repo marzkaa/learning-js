@@ -1,2 +1,36 @@
-
-
+body {
+    background: darkgrey;
+}
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+form label {
+    font-size: 20px;
+    font-weight: 600;
+}
+input {
+    margin: 10px;
+    padding: 5px;
+}
+.userList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user {
+    margin: 25px;
+    width: 265px;
+    height: 80px;
+}
+  
+.user > a {
+    margin-left: 40px;
+    text-decoration: none;
+    font-size: 27px;
+    color: black;
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translateY(-25%);
+}
