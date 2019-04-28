@@ -3,6 +3,7 @@ class App extends React.Component {
       super();
       this.state = {
         searchText: '',
+        searchingResults: false,
         users: []
       };
     }
@@ -17,7 +18,11 @@ class App extends React.Component {
       const url = `https://api.github.com/search/users?q=${searchText}`;
       fetch(url)
         .then(response => response.json())
-        .then(responseJson => this.setState({users: responseJson.items}));
+        .then(responseJson => this.setState({
+          users: responseJson.items,
+          searchingResults: true
+        })
+      );
     }
   
     render() {
@@ -31,7 +36,8 @@ class App extends React.Component {
               onChange={event => this.onChangeHandle(event)}
               value={this.state.searchText}/>
           </form>
-          <UsersList users={this.state.users}/>
+          <UsersList users={this.state.users}
+          searchingResults={this.state.searchingResults}/>
         </div>
       );
     }
@@ -44,11 +50,9 @@ class UsersList extends React.Component {
   }
 
   render() {
-    return (
-      <div className='userList'>
-        {this.users}
-      </div>
-    );
+    const results = this.props.searchingResults && this.props.users.length === 0 ? (<p> NO DATA FOUND</p>) : 
+    (<div className='usersList'>{this.users}</div>);
+    return <div>{results}</div>;
   }
 }
 

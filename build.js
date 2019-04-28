@@ -18,6 +18,7 @@ var App = function (_React$Component) {
 
     _this.state = {
       searchText: '',
+      searchingResults: false,
       users: []
     };
     return _this;
@@ -40,7 +41,10 @@ var App = function (_React$Component) {
       fetch(url).then(function (response) {
         return response.json();
       }).then(function (responseJson) {
-        return _this2.setState({ users: responseJson.items });
+        return _this2.setState({
+          users: responseJson.items,
+          searchingResults: true
+        });
       });
     }
   }, {
@@ -69,7 +73,8 @@ var App = function (_React$Component) {
             },
             value: this.state.searchText })
         ),
-        React.createElement(UsersList, { users: this.state.users })
+        React.createElement(UsersList, { users: this.state.users,
+          searchingResults: this.state.searchingResults })
       );
     }
   }]);
@@ -89,10 +94,19 @@ var UsersList = function (_React$Component2) {
   _createClass(UsersList, [{
     key: "render",
     value: function render() {
+      var results = this.props.searchingResults && this.props.users.length === 0 ? React.createElement(
+        "p",
+        null,
+        " NO DATA FOUND"
+      ) : React.createElement(
+        "div",
+        { className: "usersList" },
+        this.users
+      );
       return React.createElement(
         "div",
-        { className: "userList" },
-        this.users
+        null,
+        results
       );
     }
   }, {
