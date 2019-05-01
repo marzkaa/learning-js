@@ -1,0 +1,16 @@
+ul {
+  padding: 0;
+}
+li {
+  text-decoration: none;
+  color: #2b2b2b;
+  padding: 8px;
+  list-style: none;
+}
+li button {
+  background-color: transparent;
+  border-color: transparent;
+}
+ li button:hover {
+  color: #f70808;
+}
