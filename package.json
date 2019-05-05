@@ -4,22 +4,19 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "npm-run-all test:*",
-        "test:html": "globstar nu-html-checker *.html",
-        "init-project": "npm install && npm-run-all init:*",
-        "init:dirs": "mkdirp css js",
-        "init:files": "touch README.md index.html css/style.css js/script.js",
-        "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
-        "watch:browsersync": "browser-sync start --server --files css/*.css *.html"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "browser-sync": "^2.26.3",
+        "browser-sync": "^2.26.5",
         "globstar": "^1.0.0",
         "npm-run-all": "^4.1.5",
         "nu-html-checker": "^0.1.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.16.4"
+    }
 }
