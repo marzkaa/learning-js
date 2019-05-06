@@ -4,10 +4,10 @@ html(lang='en')
         include ./style.pug
         title Sign in
     body
-    form(action='http://localhost:9000/auth/google', method='GET')
+    form(action='/auth/google')
         div.container
             p Login
-            input(type='text', placeholder='login', name='login')        
+            input(type='text', placeholder='login', user='login')        
             p Password
             input(type='password', placeholder='password')
             button(type='submit') Sign in

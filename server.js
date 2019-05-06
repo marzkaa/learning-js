@@ -5,12 +5,6 @@ var config = require('./config');
 var app = express();
 var googleProfile = {};
 
-app.set('view engine', 'pug');
-app.set('views', './views');
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -32,8 +26,13 @@ function(accessToken, refreshToken, profile, cb) {
 }
 ));
 
+app.set('view engine', 'pug');
+app.set('views', './views');
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.get('/', function(req, res){
-    res.render('sign_in', { user: req.user });
+    res.render('index', { user: req.user });
 });
 
 app.get('/logged', function(req, res){
@@ -44,6 +43,7 @@ app.get('/auth/google',
 passport.authenticate('google', {
 scope : ['profile', 'email']
 }));
+
 app.get('/auth/google/callback',
     passport.authenticate('google', {
         successRedirect : '/logged',
@@ -51,7 +51,7 @@ app.get('/auth/google/callback',
     }));
 
 
-var port = 9000;
+var port = 3000;
 app.listen(port, function(){
   console.log('listening on ' + port + '...')
 });
