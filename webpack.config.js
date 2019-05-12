@@ -4,7 +4,7 @@ const OptimizeJsPlugin = require("optimize-js-plugin");
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: "client/index.html",
+    template: "public/index.html",
     filename: "index.html",
     inject: "body"
   })

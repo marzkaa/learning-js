@@ -1,0 +1,40 @@
+.Users {
+    display: flex;
+    flex: 1;
+    width: 25vw;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+    background-color: #2C3E51;
+}
+
+.UsersOnline {
+    padding: 20px;
+    text-align: center;
+    background: #136a8a;
+    background: 
+      -webkit-linear-gradient(to right, #267871, #136a8a);
+    background: 
+      linear-gradient(to right, #267871, #136a8a);
+    box-shadow: 
+      0px 2px 10px rgba(0,0,0,0.2), 
+      0px 10px 20px rgba(0,0,0,0.3), 
+      0px 30px 60px 1px rgba(0,0,0,0.5);
+    color: #fff;
+}
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: "\2022";
+    color: red;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+}
+
+li {
+    color:rgb(160, 151, 151);
+    padding-bottom: 5px;
+}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Stylish');
+
+body {
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Share Tech', sans-serif;
+}
+form {
+    background: url('https://image.ibb.co/e5N4h7/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.App {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100vh;
+}
+.AppHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.AppTitle {
+    display: flex;
+    width: 25vw;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #2C3E51;
+    color: #fff;
+}
+.AppRoom {
+    display: flex;
+    width: 75vw;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    background: #136a8a;
+    background: 
+      -webkit-linear-gradient(to right, #267871, #136a8a);
+    background: 
+      linear-gradient(to right, #267871, #136a8a);
+    color: #fff;
+}
+.AppBody {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+.MessageWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    flex: 1;
+}
