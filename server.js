@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://marzena:<password>@cluster0-8oox5.mongodb.net/test?retryWrites=true', {
+mongoose.connect('mongodb+srv://marzena:Skeleton1!@cluster0-8oox5.mongodb.net/test?retryWrites=true', {
     useMongoClient: true
 });
 

@@ -1,7 +1,7 @@
 {
   "name": "zad-1-4",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://secure-ridge-77728.herokuapp.com/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,8 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "mongoose": "^5.5.11"
   },
