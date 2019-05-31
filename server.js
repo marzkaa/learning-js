@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://marzena:Skeleton1!@cluster0-8oox5.mongodb.net/test?retryWrites=true', {
-    useNewUrlParser: true
-});
+mongoose.createConnection('mongodb+srv://marzena:Skeleton1!@cluster0-8oox5.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
 
 //new user Schema
 const userSchema = new Schema({
