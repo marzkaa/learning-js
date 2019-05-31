@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://marzena:Skeleton1%21@cluster0-8oox5.mongodb.net/test?retryWrites=true', {
-    useMongoClient: true
+mongoose.connect('mongodb+srv://marzena:Skeleton1%21@cluster0-8oox5.mongodb.net/test?retryWrites=true&w=majority',{ 
+    useNewUrlParser: true 
 });
 
 //new user Schema
