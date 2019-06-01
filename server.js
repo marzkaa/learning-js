@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const express = require('express');
-const server = express();
-//app.set('port', (process.env.PORT || 4000));
-
-
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://marzena:Skeleton1%21@cluster0-8oox5.mongodb.net/test?retryWrites=true&w=majority',{ 
     useNewUrlParser: true 
@@ -153,12 +148,7 @@ const findBennyAndRemove = function() {
 
 console.log('BEFORE PROMISE');
 
-
-    
-    server.listen(process.env.PORT || 3000, () => {
-
-        console.log('listening on *:3000');
-        Promise.all([kenny.save(), mark.save(), benny.save()])
+Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findAllUsers)
     .then(findSpecificRecord)
     .then(updadeUserPassword)
@@ -169,8 +159,6 @@ console.log('BEFORE PROMISE');
     .catch(err => {
         console.log('NASZ BLAD Z NODE', err);
     });
-      });
-     
 
 
 
