@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const express = require('express');
+const server = express();
+//app.set('port', (process.env.PORT || 4000));
+
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://marzena:Skeleton1%21@cluster0-8oox5.mongodb.net/test?retryWrites=true&w=majority',{ 
     useNewUrlParser: true 
@@ -159,6 +164,11 @@ Promise.all([kenny.save(), mark.save(), benny.save()])
     .catch(err => {
         console.log('NASZ BLAD Z NODE', err);
     });
+    
+    server.listen(process.env.PORT || 3000, () => {
+        console.log('listening on *:3000');
+      });
+     
 
 
 
