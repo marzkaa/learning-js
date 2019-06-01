@@ -76,6 +76,7 @@ mark.manify(function(err, name) {
 
 const findAllUsers = function() {
     // find all users
+    console.log('find')
     return User.find({}, function(err, res) {
         if (err) throw err;
         console.log('Actual database records are ' + res);
@@ -145,6 +146,8 @@ const findBennyAndRemove = function() {
         });
 }
 
+console.log('BEFORE PROMISE');
+
 Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findAllUsers)
     .then(findSpecificRecord)
@@ -153,8 +156,9 @@ Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findMarkAndDelete)
     .then(findKennyAndDelete)
     .then(findBennyAndRemove)
-    .catch(console.log.bind(console))
-
+    .catch(err => {
+        console.log('NASZ BLAD Z NODE', err);
+    });
 
 
 
