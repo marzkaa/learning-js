@@ -153,7 +153,12 @@ const findBennyAndRemove = function() {
 
 console.log('BEFORE PROMISE');
 
-Promise.all([kenny.save(), mark.save(), benny.save()])
+
+    
+    server.listen(process.env.PORT || 3000, () => {
+
+        console.log('listening on *:3000');
+        Promise.all([kenny.save(), mark.save(), benny.save()])
     .then(findAllUsers)
     .then(findSpecificRecord)
     .then(updadeUserPassword)
@@ -164,9 +169,6 @@ Promise.all([kenny.save(), mark.save(), benny.save()])
     .catch(err => {
         console.log('NASZ BLAD Z NODE', err);
     });
-    
-    server.listen(process.env.PORT || 3000, () => {
-        console.log('listening on *:3000');
       });
      
 
