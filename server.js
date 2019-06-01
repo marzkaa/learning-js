@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://kondrad:test@cluster0-8oox5.mongodb.net/test?retryWrites=true&w=majority',{ 
+mongoose.connect('mongodb+srv://marzena:Skeleton1%21@cluster0-8oox5.mongodb.net/test?retryWrites=true&w=majority',{ 
     useNewUrlParser: true 
 });
 
@@ -76,7 +76,7 @@ mark.manify(function(err, name) {
 
 const findAllUsers = function() {
     // find all users
-    console.log('find')
+    console.log()
     return User.find({}, function(err, res) {
         if (err) throw err;
         console.log('Actual database records are ' + res);
