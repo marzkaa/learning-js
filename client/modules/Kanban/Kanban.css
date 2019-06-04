@@ -1,0 +1,26 @@
+/* Kanban styles */
+.KanbanContainer {
+    text-align: center;
+    min-width: 400px;
+    max-width: 1000px;
+    background: #CDD4D4;
+}
+
+
+.AddLane {
+    margin: 10px auto;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #024575;
+    border: 2px solid #024575;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.AddLane:hover {
+    color: #024575;
+    background-color: #fff;
+}
+

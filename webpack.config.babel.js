@@ -7,6 +7,7 @@ if (process.env.NODE_ENV === 'production') {
   cssModulesIdentName = '[hash:base64]';
 }
 
+process.noDeprecation = true
 module.exports = {
   output: {
     publicPath: '/',

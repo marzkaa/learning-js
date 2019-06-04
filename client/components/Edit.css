@@ -1,0 +1,25 @@
+.value {
+    font: bold 14px Verdana, sans-serif;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(41, 39, 39);
+    background-color: transparent;
+    cursor: pointer;
+    border-color: transparent;
+}
+
+.delete {
+    max-height: 25px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 5px 10px;
+}
+
+.btn-delete:hover {
+    color: #04243a;
+}
+

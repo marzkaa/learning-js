@@ -1,0 +1,12 @@
+/* Note styles */
+.Note {
+    margin: 10px 5px;
+    padding: 5px;
+    width: 98%;
+    max-height: 30%;
+    display: inline-flex;
+    box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.9);
+    background-color: rgb(248, 207, 157);
+    justify-content: flex-start;
+}
+

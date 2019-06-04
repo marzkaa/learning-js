@@ -7,6 +7,7 @@ var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
 var cssnano = require('cssnano');
 
+process.noDeprecation = true
 module.exports = {
   devtool: 'hidden-source-map',
 
