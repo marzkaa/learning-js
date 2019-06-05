@@ -82,11 +82,10 @@ export function editPostRequest(cuid, post) {
   };
 }
 
-export function thumbUpPost(cuid, voteCount) {
+export function thumbUpPost(cuid) {
   return {
     type: THUMB_UP_POST,
     cuid,
-    voteCount,
   }
 }
 
@@ -94,17 +93,16 @@ export function thumbUpPostRequest(cuid, voteCount) {
   return (dispatch) => {
     return callApi(`posts/${cuid}`, 'put', {
       post: {
-        voteCount: post.voteCount,
+        voteCount: voteCount + 1,
       }
-    }).then(() => dispatch(thumbUpPost(cuid, voteCount)));
+    }).then(() => dispatch(thumbUpPost(cuid)));
   };
 }
 
-export function thumbDownPost(cuid, voteCount) {
+export function thumbDownPost(cuid) {
   return {
     type: THUMB_DOWN_POST,
     cuid,
-    voteCount,
   }
 }
 
@@ -112,8 +110,8 @@ export function thumbDownPostRequest(cuid, voteCount) {
   return (dispatch) => {
     return callApi(`posts/${cuid}`, 'put', {
       post: {
-        voteCount: post.voteCount,
+        voteCount: voteCount - 1,
       }
-    }).then(() => dispatch(thumbDownPost(cuid, voteCount)));
+    }).then(() => dispatch(thumbDownPost(cuid)));
   };
 }

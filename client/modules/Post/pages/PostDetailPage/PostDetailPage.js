@@ -22,7 +22,7 @@ export class PostDetailPage extends React.Component {
       name: this.props.post.name,
       title: this.props.post.title,
       content: this.props.post.content,
-      voteCount: this.props.post.voteCount,
+     
     };
   }
 
