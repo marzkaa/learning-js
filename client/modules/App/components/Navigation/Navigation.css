@@ -1,0 +1,10 @@
+.navigation a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: white;
+}
+
+.navigation {
+	width: 980px;
+    padding: 20px;
+}
