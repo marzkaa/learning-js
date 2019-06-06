@@ -5,7 +5,7 @@ import { CREATE_NOTE, DELETE_NOTE, MOVE_WITHIN_LANE } from '../Note/NoteActions'
 import omit from 'lodash/omit';
 
 // Initial State
-const initialState = {};
+const initialState = [];
 
 function moveNotes(array, sourceNoteId, targetNoteId) {
 	const sourceIndex = array.indexOf(sourceNoteId);
@@ -17,27 +17,27 @@ function moveNotes(array, sourceNoteId, targetNoteId) {
 }
 
 export default function lanes(state = initialState, action) {
-
 	switch (action.type) {
 		case CREATE_LANE:
+			return { ...state, [action.lane.id]: action.lane };
 		case UPDATE_LANE:
 			return { ...state, [action.lane.id]: action.lane };
 		case EDIT_LANE: {
-			const lane = { ...state[action.laneId], editing: true };
-			return { ...state, [action.laneId]: lane };
+			const lane = { ...state[action.id], editing: true };
+			return { ...state, [action.id]: lane };
 		}
 		case CREATE_LANES:
 			return { ...action.lanes };
 		case DELETE_NOTE: {
 			const newLane = { ...state[action.laneId] };
 			newLane.notes = newLane.notes.filter(noteId => noteId !== action.noteId);
-
+	
 			return { ...state, [action.laneId]: newLane };
 		}
 		case CREATE_NOTE: {
 			const newLane = { ...state[action.laneId] };
 			newLane.notes = newLane.notes.concat(action.note.id);
-
+	
 			return { ...state, [action.laneId]: newLane };
 		}
 		case DELETE_LANE: {
