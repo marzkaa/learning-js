@@ -57,8 +57,8 @@ const noteTarget = {
   hover(targetProps, monitor) {
     const sourceProps = monitor.getItem();
 
-    const sameLane = targetProps.laneId === sourceProps.laneId;
-    if (targetProps.id !== sourceProps.id && sameLane) {
+    //const sameLane = targetProps.laneId === sourceProps.laneId;
+    if (targetProps.id !== sourceProps.id) {
       targetProps.moveWithinLane(targetProps.laneId, targetProps.id, sourceProps.id);
     }
   },
