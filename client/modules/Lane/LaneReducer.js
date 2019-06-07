@@ -23,8 +23,8 @@ export default function lanes(state = initialState, action) {
 		case UPDATE_LANE:
 			return { ...state, [action.lane.id]: action.lane };
 		case EDIT_LANE: {
-			const lane = { ...state[action.id], editing: true };
-			return { ...state, [action.id]: lane };
+			const lane = { ...state[action.laneId], editing: true };
+			return { ...state, [action.laneId]: lane };
 		}
 		case CREATE_LANES:
 			return { ...action.lanes };
@@ -46,7 +46,6 @@ export default function lanes(state = initialState, action) {
 		case MOVE_WITHIN_LANE: {
 			const newLane = { ...state[action.laneId] };
 			newLane.notes = moveNotes(newLane.notes, action.sourceId, action.targetId);
-			console.log("laneReducer" , newLane);
 			return { ...state, [action.laneId]: newLane };
 		}
 		case MOVE_BETWEEN_LANES: {
