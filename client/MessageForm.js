@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import uuid from 'uuid';
 import styles from './MessageForm.css';
 
 class MessageForm extends Component {
@@ -9,9 +10,12 @@ class MessageForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const messageId = uuid();
     const message = {
+      id : messageId,
       from : this.props.name,
-      text : this.state.text
+      text : this.state.text,
+      createAt : new Date().toTimeString().slice(0,8)
     };
     this.props.onMessageSubmit(message);
     this.setState({ text: '' });

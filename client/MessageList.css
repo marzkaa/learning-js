@@ -26,3 +26,19 @@
     line-height: 24px;
     max-width: 80%;
 }
+.createAt {
+    background: none !important;
+    color: black !important;
+    font-size: 10px;
+    position: inherit;
+}
+.button{
+    right: 10px;
+    position: absolute;
+    color: black;
+    background-color: unset;
+    border-style: none;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+}

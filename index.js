@@ -39,9 +39,16 @@ io.on('connection', (socket) => {
       const {name} = usersService.getUserById(socket.id);
       socket.broadcast.emit('message', {
         text: message.text,
-        from: name
+        id: message.id,
+        from: name,
+        date: message.createAt,
       });
     });
+});
+io.on('connection', (socket) => {
+    socket.on('deleteMsg', function(id){
+    socket.broadcast.emit('deleteMsg', id);
+  }); 
 });
 
 server.listen(3000, () => {

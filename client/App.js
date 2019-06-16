@@ -18,6 +18,7 @@ class App extends Component {
     componentDidMount() {
         socket.on('message', message => this.messageReceive(message));
         socket.on('update', ({users}) => this.chatUpdate(users));
+        socket.on('deleteMsg', messageId => this.removeMessage(messageId));
     }
 
     messageReceive(message) {
@@ -27,6 +28,16 @@ class App extends Component {
 
     chatUpdate(users) {
         this.setState({users});
+    }
+
+    removeMessage(messageId) {
+      const messages = this.state.messages.filter(message => message.id !== messageId);
+      this.setState({messages});
+    }
+
+    removeMessageHandler(messageId) {
+      socket.emit('deleteMsg',messageId);
+      this.removeMessage(messageId);
     }
 
     handleMessageSubmit(message) {
@@ -65,6 +76,8 @@ class App extends Component {
                <div className={styles.MessageWrapper}>
                  <MessageList
                    messages={this.state.messages}
+                   name={this.state.name} 
+                   removeMessage={messageId => this.removeMessageHandler(messageId)}
                  />
                  <MessageForm
                    onMessageSubmit={message => this.handleMessageSubmit(message)}
