@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
         text: message.text,
         id: message.id,
         from: name,
-        date: message.createAt,
+        createAt: message.createAt,
       });
     });
 });
